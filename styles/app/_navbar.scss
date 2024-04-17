@@ -1,0 +1,239 @@
+/* -----------------------------------------------------------------
+    - Navbar
+----------------------------------------------------------------- */
+
+$size-nav: rem(60px);
+
+.circle-menu {
+  background: $tone-color;
+  border-radius: 50% 0 50% 50%;
+  box-shadow: 0 rem(24px) rem(40px) rgba($tone-color, .1), 
+              0 rem(8px) rem(16px) rgba($tone-color, .1);
+  @include flex($align: center, $justify: center);
+  height: $size-nav;
+  pointer-events: none;
+  visibility: hidden;
+  @include position(fixed, $top: 0, $right: 0);
+  width: $size-nav;
+  z-index: 1101;
+  
+  @media only screen and (max-width: $medium) {
+    pointer-events: all;
+	visibility: visible;
+  }
+  
+  .open-menu & {
+	box-shadow: 0 0 0 rem(1px) rgba($tone-color, .5);
+	background-image: none;
+  }
+}
+ 
+// Hamburger
+.hamburger {
+  cursor: pointer;
+  color: $white-color;
+  text-align: center;
+  
+  .line {
+    background-color: $white-color;
+	border-radius: rem(4px);
+	display: block;
+	margin: rem(5px) 0;
+    height: rem(3px);
+    width: rem(24px);
+	opacity: 0;
+	transition: all 0.2s ease-in-out;
+	
+	&:nth-child(2) {
+	  margin-left: rem(4px);
+	  width: rem(20px);
+	}
+	
+	@media only screen and (max-width: $small) {
+	  margin: rem(4px) 0;
+      height: rem(2px);
+      width: rem(18px);
+	  
+	  &:nth-child(2) {
+	    width: rem(14px);
+	  }	  
+	}
+  }
+  
+  &.is-active .line:nth-child(1) {
+    opacity: 1;
+    transform: translateY(8px) rotate(45deg);
+	
+	@media only screen and (max-width: $small) {
+	  transform: translateY(6px) rotate(45deg);
+	}
+  }
+  
+  &.is-active .line:nth-child(2) {
+    opacity: 0;
+    transform: rotate(45deg);
+  }
+
+  &.is-active .line:nth-child(3) {
+    opacity: 1;
+    transform: translateY(-8px) rotate(-45deg);
+	
+	@media only screen and (max-width: $small) {
+	  transform: translateY(-6px) rotate(-45deg);
+	}	
+  }
+  
+  &__text {
+    font-size: rem(12px);
+    @include position(absolute, $top: 33%, $left: 0);
+    width: 100%;
+  }
+  
+  &.is-active .hamburger__text {
+    opacity: 0;
+  }  
+}
+
+// Nav
+.nav-wrap {
+  @include flex();
+  max-width: rem(1030px);
+  width: 100%;
+  
+  @media only screen and (max-width: $large) {
+    width: 80%;
+  }
+  
+  @media only screen and (max-width: $medium) {
+    height: 100%;
+	@include position(fixed, $top: 0);
+	transition: all .4s ease-in-out;
+	visibility: hidden;
+	width: 100%;
+	z-index: 1001;
+	
+	&::before {
+	  content: '';
+	  background-color: $tone-color;
+	  border-radius: 50% 0 50% 50%;
+	  height: $size-nav;
+	  @include position(absolute, $top: 0, $right: 0);
+	  transition: all .3s ease-in-out;
+	  width: $size-nav;
+	  z-index: 0;
+	}
+  }
+  
+  .open-menu & {
+    visibility: visible;
+	
+	&::before {
+	  border-radius: 0;
+	  height: 100rem;
+	  width: 100rem;
+	}
+	
+	.nav {
+	  opacity: 1;
+	  transform: translateY(0%);
+	}
+  }
+}
+
+.nav {
+  background-color: $white-color;
+  border-radius: 0 $border-rounded-30 0 0;
+  color: $gray-400-color;
+  @include flex($align: center, $justify: center);
+  font-weight: $weight-500;
+  height: rem(68px);
+  letter-spacing: .04rem;
+  margin-left: auto;
+  padding-top: rem(16px);
+  padding-right: rem(40px);
+  @include position(relative, $bottom: -.1px);
+  z-index: 1;
+  
+  &::before {
+    content: '';
+	background-image: url(../images/nav-edge.svg);
+	height: 100%;
+	@include position(absolute, $top: 0, $left: rem(-124px));
+	width: rem(135px);
+	z-index: -1;
+  }
+  
+  @media only screen and (max-width: $large) {
+    border-radius: $border-rounded-30 $border-rounded-30 0 0;
+	padding-top: 0;
+	padding-right: 0;
+	width: 100%;
+	
+    &::before {
+	  display: none;
+	}
+  }
+  
+  @media only screen and (max-width: $medium) {
+    background-color: transparent;
+	color: $white-color;
+    border-radius: 0;
+	flex-direction: column;
+	font-size: rem(24px);
+	font-weight: $weight-400;
+    height: 100%;
+	padding: 0;
+	opacity: 0;
+	transition: all .3s ease-in-out;
+	transform: translateY(-100%);
+    width: 100%;
+  }
+  
+  @supports (-ms-ime-align:auto) {
+    bottom: -.7px;
+  }
+  
+  &__item {
+    margin-right: rem(6px);
+	
+	@media only screen and (max-width: $medium) {
+	  margin-right: 0;
+	  margin: rem(13px) 0;
+	}
+	
+	a {
+	  color: $gray-400-color;
+	  padding: rem(9px) rem(16px);
+	  text-transform: uppercase;
+	  
+	  &:hover {
+	    color: $tone-color;
+		text-decoration: none;
+	  }
+	  
+	  @media only screen and (max-width: $medium) {
+	    color: rgba($white-color,.7);
+		padding: 0;
+		
+		&:hover {
+		  color: $white-color;
+		}
+	  }
+	  
+	  &.active {
+	    background-color: $tone-color;
+		border-radius: $border-rounded-10;
+	    color: $white-color;
+		
+		@media only screen and (max-width: $medium) {
+		  background-color: transparent;
+		  border-radius: 0;
+		}
+	  }
+	}
+  }
+	
+  &__item:last-child {
+	margin-right: 0;
+  }
+}

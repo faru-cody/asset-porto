@@ -1,0 +1,40 @@
+// Fonts
+@import url('../font/inter.css');
+@import url('https://fonts.googleapis.com/css?family=Merriweather:400,900&display=swap');
+
+// Font settings
+$font-body                  : 'Inter', sans-serif; 
+$font-title                 : 'Inter', sans-serif;
+$font-additional            : 'Merriweather', serif;
+
+$baseSystemFontSize         : 16px;
+
+$weight-400                 : 400; // regular
+$weight-500                 : 500; // medium
+$weight-600                 : 600; // semi bold
+$weight-700                 : 700; // bold
+
+// Colors
+$white-color                : #fff;
+
+$black-color                : #44566C;
+$gray-100-color             : #F5F8F9;
+$gray-200-color             : #F0F0F6;
+$gray-300-color             : #8697A8;
+$gray-400-color             : #5F6F81;
+
+$tone-color                 : #304CFD; // blue
+$tone-additional-color      : #FF965D; // orange
+$red-color                  : #FF3D57; // red
+
+// Gradien
+$gradient-1                 : linear-gradient(111.59deg, #FFF2E7 0%, #FFCADA 99.08%);                  // peach
+$gradient-2                 : linear-gradient(111.59deg, #FFC956 0%, #FF9F4D 99.08%);                  // orange
+$gradient-3                 : linear-gradient(128.99deg, #00F1E2 10.98%, #2CD5EF 90.23%);              // azure
+$gradient-4                 : linear-gradient(135deg, rgba(155,225,93,1) 0%, rgba(0,217,166,1) 100%);  // green 
+
+// Border radius
+$border-rounded-10          : 10px;
+$border-rounded-20          : 20px;
+$border-rounded-30          : 30px;
+$border-rounded-48          : 48px;

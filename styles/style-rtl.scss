@@ -1,0 +1,514 @@
+$version: "1.0.0";
+
+/* ------------------------------------------------
+ Author: ArtStyles (Art)
+ 
+ Template Name: 
+ version: #{$version}
+------------------------------------------------ */
+
+// Variables
+@import 'variables/vars';
+@import 'variables/mixins';
+@import 'variables/media';
+
+/* -----------------------------------------------------------------
+    - General Styles
+----------------------------------------------------------------- */
+
+body {
+  direction: rtl;
+  text-align: right;
+}
+
+// Background
+.bg {
+  &-triangles {
+	background-position: right top, left bottom;
+  }  
+}
+
+// Input Text
+.input {
+  text-align: right;  text-align: right;  
+  
+  &__icon {
+    padding-left: 0;
+	padding-right: rem(45px);
+  }
+}
+
+.form-group {
+  .font-icon {
+    left: auto;
+    right: 0;
+  }
+}
+
+.help-block {
+  padding-left: 0;
+  padding-right: rem(6px);
+}
+
+// Checkbox
+.custom-control-label {
+  padding-left: 0;
+  padding-right: rem(8px);	
+}
+
+// Button
+.btn {
+  .font-icon {
+    margin-left: rem(3px);
+    margin-right: 0;
+  }
+}
+
+
+// Dropdown
+.dropdown {
+  &-menu {
+    transform: translate3d(0, -122px, 0px)!important;
+	
+	&::before {
+      left: auto;
+	  right: rem(27px);
+	}
+  }
+}
+
+// Progress
+.progress {
+  text-align: left;
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { 
+   .progress-text span:nth-child(2) {
+     float: left;
+   }
+}  
+
+
+/* -----------------------------------------------------------------
+    - Typography
+----------------------------------------------------------------- */
+
+.title { 
+  &-icon {
+	margin-left: rem(8px);
+	margin-right: 0;
+  }
+  
+  &__separate {
+    &::before,
+    &::after {
+	  left: auto;
+      right: 0;
+    }
+  }
+}
+
+.block-quote {
+  margin: rem(29px) rem(3px) rem(29px) 0;
+
+  @media only screen and (max-width: $large) {
+    padding-left: 0;
+	padding-right: rem(61px);
+  }  
+  
+  @media only screen and (max-width: $medium) {
+	padding-right: 0;
+  }
+  
+  &::before {
+    left: auto;
+    right: rem(-41px);
+	
+	@media only screen and (max-width: $large) {
+	  left: auto;
+      right: 0;
+	}
+  }
+  
+  &__author {
+	padding-left: 0;
+    padding-right: rem(48px);
+	
+	@media only screen and (max-width: $medium) {
+	  padding-left: 0;
+	  padding-right: rem(32px);
+	}
+	
+	&::before {
+	  left: auto;
+      right: 0;
+	}
+  }
+}
+
+
+/* -----------------------------------------------------------------
+    - Preloader
+----------------------------------------------------------------- */
+
+.preloader {
+  &__progress {
+	left: auto;
+	right: 0;
+
+	span {
+	  left: auto;
+      right: 0;
+	}
+  }
+}
+
+
+/* -----------------------------------------------------------------
+    - Navbar
+----------------------------------------------------------------- */
+
+.circle-menu {
+  left: 0;
+  right: auto;
+}
+ 
+// Hamburger
+.hamburger {
+  .line {
+	&:nth-child(2) {
+	  margin-left: 0;
+	  margin-right: rem(4px);
+	}
+  }
+  
+  &.is-active .line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+	
+	@media only screen and (max-width: $small) {
+	  transform: translateY(6px) rotate(45deg);
+	}
+  } 
+}
+
+// Nav
+.nav-wrap {
+  @media only screen and (max-width: $medium) {
+	&::before {
+      left: 0;
+	  right: auto;
+	}
+  }
+}
+
+.nav {
+  border-radius: $border-rounded-30 0 0 0;
+  margin-left: 0;
+  margin-right: auto;
+  padding-left: rem(40px);
+  padding-right: 0;
+
+  &::before {
+	left: auto;
+    right: rem(-124px);
+	transform: scaleX(-1);
+  }
+  
+  @media only screen and (max-width: $large) {
+    border-radius: $border-rounded-30 $border-rounded-30 0 0;
+  }
+  
+  &__item {
+    margin-left: rem(6px);
+    margin-right: 0;
+	
+	@media only screen and (max-width: $medium) {
+	  margin-left: 0;
+	}
+  }
+	
+  &__item:last-child {
+	margin-left: 0;
+  }
+}
+
+
+/* -----------------------------------------------------------------
+    - Section
+----------------------------------------------------------------- */
+
+.wrapper {
+  border-radius: 0 $border-rounded-30 $border-rounded-30 $border-rounded-30;
+  
+  @media only screen and (max-width: $large) {
+	border-radius: 0 0 $border-rounded-30 $border-rounded-30;
+  }
+  
+  @media only screen and (max-width: $medium) {
+    border-radius: $border-rounded-30;
+  }
+}
+
+// Social
+.social {
+  &__link {
+	margin-left: 0;
+	margin-right: rem(13px);
+
+	&:first-child {
+	  margin-right: 0;
+	}
+  }
+}
+
+/* -----------------------------------------------------------------
+    - Sidebar
+----------------------------------------------------------------- */
+
+// Contact list
+.contact-block {
+  padding-right: 0;
+
+  .font-icon {
+    margin-left: rem(14px);
+    margin-right: 0;
+  }
+}
+
+/* -----------------------------------------------------------------
+    - Testimonials
+----------------------------------------------------------------- */
+
+.review-item {
+  background-position: left rem(30px) top rem(30px);
+  
+  @media only screen and (max-width: $small) {
+    background-position: left rem(16px) top rem(16px);
+  }
+
+  .title {
+    margin-left: 0;
+    margin-right: rem(88px);
+	
+	@media only screen and (max-width: $small) {
+      margin-right: 0;
+	}
+  }
+}
+
+
+/* -----------------------------------------------------------------
+    - Timeline
+----------------------------------------------------------------- */
+
+.timeline {
+  padding-left: 0;
+  padding-right: rem(17px);
+  
+  &__item {
+    border-right-color: $gray-200-color;
+	border-right-style: solid;
+	border-left-width: 0;
+	border-right-width: 1px;
+    padding-left: 0;
+    padding-right: rem(22px);
+	
+	&::before {
+	  left: auto;
+      right: rem(-5px);
+	}
+	
+	@media only screen and (max-width: $small) {
+	  &::before {
+		left: 0;
+	    right: rem(-4px);
+	  }
+	}
+  }
+}
+
+
+/* -----------------------------------------------------------------
+    - Portfolio
+----------------------------------------------------------------- */
+
+.gallery-grid {
+  &__caption {
+    padding-left: 0;
+	padding-right: rem(3px);
+  }
+}
+
+// Filter
+@media only screen and (min-width: 769px) {
+  .filter {  
+    &__item {
+	  padding-left: rem(19px);
+      padding-right: 0;
+
+	  &:last-child {
+	    padding-left: 0;
+	  }
+    }
+  }
+}
+
+@media only screen and (max-width: $medium) {
+  .select {
+    padding-left: rem(13px);
+	padding-right: rem(16px); 
+    text-align: right;
+
+    .placeholder {
+      &:after {
+        left: rem(2px);
+        right: auto;
+      }
+    }
+
+    ul {
+      left: auto;
+	  right: 0;
+
+      li {
+        text-align: right;
+      }
+    }
+  }
+}
+
+
+/* -----------------------------------------------------------------
+    - News
+----------------------------------------------------------------- */ 
+
+.news-item {
+  &__date {
+	border-radius: 0 $border-rounded-20 0 $border-rounded-20;
+  }
+}
+
+/* -----------------------------------------------------------------
+    - Single post
+----------------------------------------------------------------- */ 
+
+.footer-post {
+  &__share {
+	.font-icon {
+	  margin-left: rem(11px);
+	  margin-right: 0;
+	}
+  }
+}
+
+// Comments
+.comment-box {
+  .comment-box {
+    margin-left: 0;
+	margin-right: rem(48px);
+	
+	@media only screen and (max-width: $small) {
+      margin-left: 0;
+	  margin-right: rem(19px);
+    }
+  }
+  
+  &__inner {
+    padding: rem(20px) rem(22px) rem(16px) rem(20px);
+	
+	@media only screen and (max-width: $small) {
+	  padding: rem(16px) rem(17px) rem(16px) rem(16px);
+	}
+  }
+
+  .avatar {
+    margin-left: rem(16px);
+    margin-right: 0;
+  }
+  
+  &__footer {
+	li {
+	  margin-left: rem(32px);
+	  margin-right: 0;
+	  
+	  @media only screen and (max-width: $small) {
+	    margin-left: rem(16px);
+	    margin-right: 0;
+	  }
+	  
+	  &:last-child {
+		margin-left: 0;
+      }	  
+	}
+	
+	span {
+	  padding-left: 0;
+	  padding-right: rem(6px);
+	}	
+  }
+}
+
+// Comment form
+.comment-form {
+  .textarea {
+	padding: rem(17px) rem(57px) rem(16px) rem(72px);
+  }
+  
+  .btn {
+    margin-left: rem(8px);
+    margin-right: 0;
+    left: 0;
+    right: auto;
+  }
+
+  .dropdown {
+	margin-left: 0;
+	margin-right: rem(24px);
+   
+	&-menu {
+	  margin-left: 0;
+      margin-right: rem(-24px);
+	  right: 0;
+	}
+  }  
+}
+
+// Social auth
+.social-auth {
+  &__item {
+    margin-left: rem(6px);
+	margin-right: 0;
+  }
+}
+
+/* -----------------------------------------------------------------
+    - Contact
+----------------------------------------------------------------- */ 
+
+#contact-form .text-right {
+  text-align: left!important;
+}
+
+#contact-form .text-md-left {
+  @media only screen and (min-width: $medium) {
+    text-align: right!important;
+  }
+}
+
+/* -----------------------------------------------------------------
+    - Other
+----------------------------------------------------------------- */ 
+
+// Bact to top
+.back-to-top {
+  left: rem(40px);
+  right: auto;
+}
+
+// Scrollbar
+.simplebar-track {
+  &.simplebar-vertical {
+    left: rem(6px)!important;
+    right: auto!important;
+  }
+}

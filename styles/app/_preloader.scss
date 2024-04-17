@@ -1,0 +1,35 @@
+/* -----------------------------------------------------------------
+    - Preloader
+----------------------------------------------------------------- */
+
+.preloader {
+  @include flex($align: center, $justify: center);
+  background-color: $white-color;
+  @include position(fixed, $top: 0, $left: 0);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  z-index: 1106;
+  opacity: 1;
+
+  &__wrap {
+    width: 100%;
+	max-width: rem(150px);
+  }
+
+  &__progress {
+    background: $white-color;
+    height: rem(2px);
+	@include position(absolute, $top: 0, $left: 0);
+	overflow: hidden;
+	width: 100%;
+	
+	span {
+	  background: $tone-color;
+	  @include position(absolute, $top: 0, $left: 0);
+	  height: 100%;
+	  width: 0;
+	}
+  }
+}

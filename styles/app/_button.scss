@@ -1,0 +1,64 @@
+// Button
+.btn {
+  background-color: $tone-color;
+  border-radius: $border-rounded-20;
+  border: 0;
+  box-shadow: 0 rem(8px) rem(16px) rgba($tone-color, .15), 
+              0 rem(2px) rem(4px) rgba($tone-color, .15);
+  color: $white-color;
+  cursor: pointer;
+  font-size: rem(16px);
+  font-weight: $weight-400;
+  line-height: inherit;
+  overflow: hidden;
+  padding: rem(15px) rem(24px);
+  position: relative;
+  transition: .4s ease-in-out;
+  white-space: nowrap;
+  z-index: 1;
+  
+  &:hover {
+    color: $white-color;
+	box-shadow: none;
+	opacity: .9;
+	
+	span {
+      width: rem(480px);
+      height: rem(480px);
+    }
+  }
+  
+  &:focus {
+    box-shadow: 0 rem(24px) rem(40px) rgba($tone-color, .1), 
+                0 rem(8px) rem(16px) rgba($tone-color, .1);
+  }
+  
+  &::before {
+    content: '';
+	box-shadow: 0 rem(4px) rem(32px) rgba($tone-color, .25),
+	            0 rem(4px) rem(16px) rgba($tone-color, .25);
+	margin: 0 auto;
+	height: rem(16px);
+	@include position(absolute, $left: 0, $bottom: 0, $right: 0);
+	width: 64%;
+	z-index: -1;
+  }  
+  
+  span {
+    background-color: rgba($white-color,.1);
+	border-radius: 50%;
+    display: block;
+    width: 0;
+    height: 0;
+	position: absolute;
+    transition: width .4s ease-in-out, height .4s ease-in-out;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+  }
+  
+  .font-icon {
+    margin-right: rem(3px);
+  }
+}
+
+button:focus {outline: none;}

@@ -1,0 +1,82 @@
+/* -----------------------------------------------------------------
+    - Other
+----------------------------------------------------------------- */ 
+
+// Bact to top
+.back-to-top {
+  border-top: 1px solid $black-color;
+  border-left: 1px solid $black-color;
+  cursor: pointer;
+  height: rem(32px);
+  opacity: .5;
+  @include position(fixed, $right: rem(40px), $bottom: rem(30px));
+  width: rem(32px);
+  transform: rotate(45deg);
+  transition: opacity .35s ease-out;
+  z-index: 10;
+  
+  &:hover {
+    opacity: 1;
+  }
+  
+  @media only screen and (max-width: $small) {
+    display: none!important;
+  }
+}
+
+.js-lines {
+  overflow: hidden;
+  
+  div {
+    overflow: hidden;
+  }
+}
+
+.js-words div div {
+  opacity: 0;
+}
+
+// Medium Zoom
+.medium-zoom--opened {
+  overflow: hidden;
+}
+
+.medium-zoom-overlay {
+  background: $white-color!important;
+  z-index: 1104;
+}
+
+.medium-zoom-image {
+  cursor: pointer!important;
+  z-index: 1104;
+  
+  &--opened {
+    border-radius: 1px;
+	height: 100%;
+  }
+}
+
+// Scrollbar
+.simplebar-track {
+  &.simplebar-vertical {
+    right: rem(6px);
+	width: rem(8px);
+  }
+  
+  &.simplebar-horizontal {
+    height: rem(8px);
+  }
+  
+  .simplebar-scrollbar::before {
+    background-color: $gray-400-color;
+  }
+}
+
+.simplebar-content-wrapper {
+  overflow: auto;
+}
+	
+.js-scroll {
+  //overflow: hidden;
+}
+

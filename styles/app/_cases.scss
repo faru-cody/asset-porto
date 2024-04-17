@@ -1,0 +1,63 @@
+/* -----------------------------------------------------------------
+    - Cases
+----------------------------------------------------------------- */
+
+.case-item-wrap {
+  margin-bottom: rem(24px);
+  
+  &:nth-last-child(1),
+  &:nth-last-child(2) {
+	margin-bottom: 0;
+  }
+  
+  @media only screen and (max-width: $large) {
+    margin-bottom: rem(24px);
+	
+	&:nth-last-child(2) {
+	  margin-bottom: rem(24px);
+    }
+  } 
+  
+  @media only screen and (max-width: $small) {
+	margin-bottom: rem(15px);
+	
+	&:nth-last-child(2) {
+	  margin-bottom: rem(15px);
+    }
+  }  
+}
+
+.case-item {
+  border: 3px solid $gray-100-color;
+  border-radius: $border-rounded-30;
+  padding: rem(24px);
+  position: relative;
+  text-align: center;
+
+  @media only screen and (max-width: $small) {
+	padding: rem(19px) rem(16px);
+  }  
+  
+  .title {
+    margin-bottom: rem(9px);
+  }
+  
+  &__icon {
+    $size: rem(40px);
+	height: $size;
+	width: $size;
+	margin-bottom: rem(16px);
+  }
+  
+  &__caption {
+    font-size: rem(15px);
+	
+	@media only screen and (max-width: $small) {
+	  line-height: 1.5;
+	}
+  }
+  
+  &__caption:last-child {
+    margin-bottom: 0;
+  }
+}

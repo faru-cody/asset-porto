@@ -1,0 +1,283 @@
+/* -----------------------------------------------------------------
+    - Sections
+----------------------------------------------------------------- */
+
+.main {
+  @include flex($align: center, $justify: center, $direction: column);
+  height: 100vh;
+  padding: rem(30px);
+  
+  @media only screen and (max-width: $large) {
+    justify-content: normal;
+	margin-top: rem(32px);
+	height: 100%;
+    padding: rem(15px);
+  }
+  
+  @media only screen and (max-width: $medium) {
+    margin-top: 0;
+  }
+  
+  .full-page & {
+    height: 100%;
+  }
+}
+
+.wrapper {
+  background-color: $white-color;
+  border-radius: $border-rounded-30 0 $border-rounded-30 $border-rounded-30;
+  box-shadow: 0 rem(40px) rem(50px) rgba($gray-300-color, .1);
+  @include flex();
+  max-height: rem(680px);
+  height: 100%;
+  //overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: rem(1030px);
+  position: relative;
+  width: 100%;
+  
+  &::before {
+    content: '';
+	box-shadow: 0 rem(40px) rem(50px) rgba($gray-300-color, .2);
+	@include position(absolute, $left: 0, $bottom: 0, $right: 0);
+	margin: 0 auto;
+	height: rem(80px);
+	width: 78%;
+	z-index: -1;
+  }
+  
+  @media only screen and (max-width: $large) {
+    flex-direction: column;
+	border-radius: 0 0 $border-rounded-30 $border-rounded-30;
+	margin-bottom: rem(32px);
+	max-height: 100%;
+	width: 80%;
+  }
+  
+  @media only screen and (max-width: $medium) {
+    border-radius: $border-rounded-30;
+    margin-top: rem(64px);
+	width: 86%;
+  }
+  
+  @media only screen and (max-width: $small) {
+    margin-top: 0;
+	margin-bottom: 0;
+	width: 100%;
+  }  
+  
+  .full-page & {
+    max-height: 100%;
+  }
+  
+  &--shadow-orange {
+    box-shadow: 0 rem(40px) rem(50px) rgba(177, 68, 27, .1);
+	
+	&::before {
+	  box-shadow: 0 rem(40px) rem(50px) rgba(177, 68, 27, 0.2);
+	}
+  }
+  
+  &--shadow-azure {
+    box-shadow: 0 rem(40px) rem(50px) rgba(20, 93, 104, .1);
+	
+	&::before {
+	  box-shadow: 0 rem(40px) rem(50px) rgba(20, 93, 104, 0.2);
+	}	
+  }  
+}
+
+.content {
+  max-height: rem(680px);
+  margin-top: rem(40px);
+  margin-bottom: rem(30px);
+  padding-left: rem(30px);
+  padding-right: rem(30px);
+  width: calc(100% - 280px);
+  
+  position: relative;
+  
+  @media only screen and (max-width: $large) {
+    margin-top: rem(32px);
+    margin-bottom: rem(32px);  
+    padding-left: rem(32px);
+    padding-right: rem(32px);
+	max-height: 100%;
+	width: 100%;
+  }
+  
+  @media only screen and (max-width: $small) {
+    padding-left: rem(16px);
+    padding-right: rem(16px);
+	margin-bottom: rem(16px);
+  }
+  
+  .full-page & {
+    max-height: 100%;
+	height: 100%;
+  }
+}
+
+.section {
+  margin-top: rem(29px);
+  padding: .1px 0;
+  
+  @media only screen and (max-width: $small) {
+	margin-top: rem(24px);
+  }
+}
+
+.js-image {
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+}
+
+.box-gray {
+  background-color: $gray-100-color;
+  border-radius: $border-rounded-30;
+  padding: rem(32px) rem(30px);
+  
+  @media only screen and (max-width: $medium) {
+    border-radius: $border-rounded-20;
+    padding: rem(15px);
+  }
+}
+
+// Overlay
+.overlay {
+  position: relative;
+  
+  &::before {
+    content: '';
+    background-color: rgba($black-color, .35);
+	@include position(absolute, $top: 0, $left: 0);
+	height: 100%;
+	width: 100%;
+	z-index: 2;
+  }
+  
+  &--45 {
+    &::before {
+	  background-color: rgba($black-color, .45);
+	  @extend .overlay::before;
+	}
+  }
+  
+  &--80 {
+    &::before {
+	  background-color: rgba($black-color, .8);
+	  @extend .overlay::before;
+	}
+  }
+}
+
+// Avatars
+.avatar-wrap {
+  position: relative;
+  z-index: 1;
+  
+  &::before {
+	content: '';
+	box-shadow: 0 rem(16px) rem(24px) rgba($gray-300-color, .4);
+	border-radius: rem(16px);
+	@include position(absolute, $left: 0, $bottom: rem(4px), $right: 0);
+	margin: 0 auto;
+	height: rem(16px);
+	width: rem(120px);
+	z-index: -1;
+  }  
+}
+
+.avatar {
+  display: block;
+  height: 100%;
+  width: 100%;
+  
+  &--180 {
+    $size: rem(180px);
+    max-height: $size;
+    max-width: $size;
+    height: $size;
+    width: $size;
+	
+	@media only screen and (max-width: $large) {
+	  $size: rem(200px);
+	  max-height: $size;
+      max-width: $size;
+      height: $size;
+      width: $size;
+	}
+  }  
+  
+  &--80 {
+    $size: rem(80px);
+    max-height: $size;
+    max-width: $size;
+	filter: drop-shadow(0 rem(4px) rem(4px) rgba($gray-300-color, .1))
+	        drop-shadow(0 rem(8px) rem(8px) rgba($gray-300-color, .1));
+			
+	@media only screen and (max-width: $small) {
+      max-height: #{$size / 1.1};
+      max-width: #{$size / 1.1};
+    }	
+  }   
+  
+  &--60 {
+    $size: 60px;
+    max-height: $size;
+    max-width: $size;
+	filter: drop-shadow(0 rem(4px) rem(4px) rgba($gray-300-color, .1))
+	        drop-shadow(0 rem(8px) rem(8px) rgba($gray-300-color, .1));
+			
+	@media only screen and (max-width: $small) {
+      max-height: #{$size / 1.33};
+      max-width: #{$size / 1.33};
+    }
+  }   
+  
+  &__box {
+    -webkit-clip-path: url(#avatar-box);
+            clip-path: url(#avatar-box);
+  }
+
+  &__hexagon {
+    -webkit-clip-path: url(#avatar-hexagon);
+            clip-path: url(#avatar-hexagon);
+  }
+  
+  image {
+    height: 100%;
+    width: 100%;
+  }
+}
+
+// Social
+.social {
+  line-height: 0;
+  margin-top: rem(24px);
+  margin-bottom: rem(22px);
+  
+  &__link {
+    color: $black-color;
+	display: inline-block;
+	font-size: rem(14px);
+	margin-left: rem(13px);
+	text-decoration: none;
+	
+	&:hover {
+	  cursor: pointer;
+	  text-decoration: none;
+	}
+	
+	&:first-child {
+	  margin-left: 0;
+	}
+  }
+}
+
+.pt-6 {
+  padding-top: rem(80px);
+}
