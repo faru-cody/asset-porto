@@ -36,6 +36,7 @@
 @import url(../icons/style.css);
 @import url("../font/inter.css");
 @import url("https://fonts.googleapis.com/css?family=Merriweather:400,900&display=swap");
+@import url(styles/app/_general.scss)
 
 /* -----------------------------------------------------------------
     - General Styles
