@@ -1,0 +1,68 @@
+ <style>
+  
+        .carousel-container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+            overflow: hidden;
+            width: 90%;
+            height: auto;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: auto;
+            object-fit: contain; /* Ensures full image is shown */
+            border-radius: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between; /* Space buttons evenly */
+            position: inherit;
+            bottom: 20px; /* Adjusted to place buttons 20px from the bottom */
+            width: calc(100% - 30px); /* Full width minus button width */
+            left: 15px; /* Center the buttons */
+        }
+
+        .carousel-control {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            user-select: none;
+            width: 50px; /* Set a width for the buttons */
+            height: 50px; /* Set a height for the buttons */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-item img {
+                height: 300px;
+            }
+
+            .carousel-control {
+                font-size: 1.2rem;
+                padding: 5px;
+            }
+        }
+    </style>
