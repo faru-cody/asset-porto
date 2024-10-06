@@ -1,0 +1,5 @@
+.widget-content-cv {
+    display: inline-flex;
+    width: 145px;
+    justify-content: center;
+    gap: 10px;
