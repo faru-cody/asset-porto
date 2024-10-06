@@ -1,5 +1,4 @@
-
-        const BLOG_URL = 'https://newonetry-demo.blogspot.com/'; // Replace with your blog URL
+const BLOG_URL = 'https://newonetry-demo.blogspot.com/'; // Replace with your blog URL
         const NUM_POSTS = 5; // Number of random posts to display
         const AUTO_SLIDE_INTERVAL = 3000; // 3 seconds for auto slide
 
