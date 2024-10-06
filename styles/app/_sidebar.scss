@@ -75,7 +75,7 @@
   margin-bottom: rem(21px);  
   
   @media only screen and (max-width: $large) {
-    display: inline-block;
+    display: table-cell;
 	margin-left: auto;
     margin-right: auto;
 	width: 100%;
