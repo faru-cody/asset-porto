@@ -51,6 +51,7 @@
     flex: 0 0 auto;
 	display: block;
     width: 100%;
+	  display: table-cell;
 	
 	@media only screen and (max-width: $large) {
 	  margin-left: auto;
