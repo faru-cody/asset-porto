@@ -1,239 +1,48 @@
-/* -----------------------------------------------------------------
-    - Navbar
------------------------------------------------------------------ */
-
-$size-nav: rem(60px);
-
-.circle-menu {
-  background: $tone-color;
-  border-radius: 50% 0 50% 50%;
-  box-shadow: 0 rem(24px) rem(40px) rgba($tone-color, .1), 
-              0 rem(8px) rem(16px) rgba($tone-color, .1);
-  @include flex($align: center, $justify: center);
-  height: $size-nav;
-  pointer-events: none;
-  visibility: hidden;
-  @include position(fixed, $top: 0, $right: 0);
-  width: $size-nav;
-  z-index: 1101;
-  
-  @media only screen and (max-width: $medium) {
-    pointer-events: all;
-	visibility: visible;
-  }
-  
-  .open-menu & {
-	box-shadow: 0 0 0 rem(1px) rgba($tone-color, .5);
-	background-image: none;
-  }
-}
- 
-// Hamburger
-.hamburger {
-  cursor: pointer;
-  color: $white-color;
-  text-align: center;
-  
-  .line {
-    background-color: $white-color;
-	border-radius: rem(4px);
-	display: block;
-	margin: rem(5px) 0;
-    height: rem(3px);
-    width: rem(24px);
-	opacity: 0;
-	transition: all 0.2s ease-in-out;
-	
-	&:nth-child(2) {
-	  margin-left: rem(4px);
-	  width: rem(20px);
-	}
-	
-	@media only screen and (max-width: $small) {
-	  margin: rem(4px) 0;
-      height: rem(2px);
-      width: rem(18px);
-	  
-	  &:nth-child(2) {
-	    width: rem(14px);
-	  }	  
-	}
-  }
-  
-  &.is-active .line:nth-child(1) {
-    opacity: 1;
-    transform: translateY(8px) rotate(45deg);
-	
-	@media only screen and (max-width: $small) {
-	  transform: translateY(6px) rotate(45deg);
-	}
-  }
-  
-  &.is-active .line:nth-child(2) {
-    opacity: 0;
-    transform: rotate(45deg);
-  }
-
-  &.is-active .line:nth-child(3) {
-    opacity: 1;
-    transform: translateY(-8px) rotate(-45deg);
-	
-	@media only screen and (max-width: $small) {
-	  transform: translateY(-6px) rotate(-45deg);
-	}	
-  }
-  
-  &__text {
-    font-size: rem(12px);
-    @include position(absolute, $top: 33%, $left: 0);
-    width: 100%;
-  }
-  
-  &.is-active .hamburger__text {
-    opacity: 0;
-  }  
-}
-
-// Nav
+/* Adjusting the nav-wrap for horizontal layout */
 .nav-wrap {
-  @include flex();
-  max-width: rem(1030px);
-  width: 100%;
-  
-  @media only screen and (max-width: $large) {
-    width: 80%;
-  }
-  
+  @include flex($direction: row); // Change the flex direction to row for horizontal alignment
+  justify-content: center; // Center the tabs horizontally
+  max-width: 100%; // Allow the nav to stretch across the screen
+
   @media only screen and (max-width: $medium) {
+    flex-direction: column; // Stack vertically on smaller screens
     height: 100%;
-	@include position(fixed, $top: 0);
-	transition: all .4s ease-in-out;
-	visibility: hidden;
-	width: 100%;
-	z-index: 1001;
-	
-	&::before {
-	  content: '';
-	  background-color: $tone-color;
-	  border-radius: 50% 0 50% 50%;
-	  height: $size-nav;
-	  @include position(absolute, $top: 0, $right: 0);
-	  transition: all .3s ease-in-out;
-	  width: $size-nav;
-	  z-index: 0;
-	}
+    visibility: hidden;
+    width: 100%;
   }
   
   .open-menu & {
     visibility: visible;
-	
-	&::before {
-	  border-radius: 0;
-	  height: 100rem;
-	  width: 100rem;
-	}
-	
-	.nav {
-	  opacity: 1;
-	  transform: translateY(0%);
-	}
   }
 }
 
+/* Styling for nav */
 .nav {
   background-color: $white-color;
-  border-radius: 0 $border-rounded-30 0 0;
-  color: $gray-400-color;
-  @include flex($align: center, $justify: center);
-  font-weight: $weight-500;
+  @include flex($direction: row); // Make tabs horizontal
   height: rem(68px);
-  letter-spacing: .04rem;
-  margin-left: auto;
-  padding-top: rem(16px);
-  padding-right: rem(40px);
-  @include position(relative, $bottom: -.1px);
-  z-index: 1;
-  
-  &::before {
-    content: '';
-	background-image: url(../images/nav-edge.svg);
-	height: 100%;
-	@include position(absolute, $top: 0, $left: rem(-124px));
-	width: rem(135px);
-	z-index: -1;
-  }
-  
-  @media only screen and (max-width: $large) {
-    border-radius: $border-rounded-30 $border-rounded-30 0 0;
-	padding-top: 0;
-	padding-right: 0;
-	width: 100%;
-	
-    &::before {
-	  display: none;
-	}
-  }
-  
+  width: 100%; // Stretch across the width of the screen
+
   @media only screen and (max-width: $medium) {
-    background-color: transparent;
-	color: $white-color;
-    border-radius: 0;
-	flex-direction: column;
-	font-size: rem(24px);
-	font-weight: $weight-400;
-    height: 100%;
-	padding: 0;
-	opacity: 0;
-	transition: all .3s ease-in-out;
-	transform: translateY(-100%);
-    width: 100%;
+    flex-direction: column; // Stack tabs vertically on mobile
+    font-size: rem(20px); // Make text bigger for small screens
   }
-  
-  @supports (-ms-ime-align:auto) {
-    bottom: -.7px;
-  }
-  
-  &__item {
-    margin-right: rem(6px);
-	
-	@media only screen and (max-width: $medium) {
-	  margin-right: 0;
-	  margin: rem(13px) 0;
-	}
-	
-	a {
-	  color: $gray-400-color;
-	  padding: rem(9px) rem(16px);
-	  text-transform: uppercase;
-	  
-	  &:hover {
-	    color: $tone-color;
-		text-decoration: none;
-	  }
-	  
-	  @media only screen and (max-width: $medium) {
-	    color: rgba($white-color,.7);
-		padding: 0;
-		
-		&:hover {
-		  color: $white-color;
-		}
-	  }
-	  
-	  &.active {
-	    background-color: $tone-color;
-		border-radius: $border-rounded-10;
-	    color: $white-color;
-		
-		@media only screen and (max-width: $medium) {
-		  background-color: transparent;
-		  border-radius: 0;
-		}
-	  }
-	}
-  }
-	
-  &__item:last-child {
-	margin-right: 0;
+
+  .nav__item {
+    margin-right: rem(15px); // Space between horizontal tabs
+    display: inline-block; // Ensure items are aligned in a row
+    @media only screen and (max-width: $medium) {
+      margin-right: 0;
+      margin-bottom: rem(10px); // Space between items on smaller screens
+    }
+
+    a {
+      padding: rem(10px) rem(20px); // Add padding to the links
+      display: block; // Ensure links are clickable across the full area
+
+      @media only screen and (max-width: $medium) {
+        text-align: center; // Center text on smaller screens
+      }
+    }
   }
 }
